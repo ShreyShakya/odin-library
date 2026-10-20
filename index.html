@@ -12,7 +12,7 @@
 <body>
 
     <div>
-        <button class="submit-book">Add a Book</button>
+        <button class="add-book-button">Add a Book</button>
 
         <dialog class="form">
             <p>Add Book Details</p>
@@ -25,15 +25,14 @@
                     <input type="text" id="author" name="author">
 
                     <label for="page">Page</label>
-                    <input type="text" id="page" name="page">
+                    <input type="number" id="page" name="page">
 
-                    <label for="read">Read</label>
-                    <input type="checkbox" id="read" name="read">
+                    <label for="read">Read</label> <input type="checkbox" id="read" name="read">
                 </form>
             </div>
 
             <div class="form-action-buttons">
-                <button type="submit" form="book-submit-form">Add</button>
+                <button class="submit-book-button" type="submit" form="book-submit-form">Add</button>
                 <button class="close-modal-button">Cancel</button>
             </div>
         </dialog>
