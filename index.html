@@ -11,32 +11,39 @@
 
 <body>
 
-    <div>
-        <button class="add-book-button">Add a Book</button>
+    <main>
+        <div class="sidebar">
+            <h1>My Library</h1>
+            <button class="add-book-button">Add a Book</button>
 
-        <dialog class="form">
-            <p>Add Book Details</p>
-            <div class="form-input-field">
-                <form id="book-submit-form" action="#" method="GET">
-                    <label for="title">Title</label>
-                    <input type="text" id="title" name="title">
+            <dialog class="form">
+                <p>Add Book Details</p>
+                <div class="form-input-field">
+                    <form id="book-submit-form" action="#" method="GET">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" name="title">
 
-                    <label for="author">Author</label>
-                    <input type="text" id="author" name="author">
+                        <label for="author">Author</label>
+                        <input type="text" id="author" name="author">
 
-                    <label for="page">Page</label>
-                    <input type="number" id="page" name="page">
+                        <label for="page">Page</label>
+                        <input type="number" id="page" name="page">
 
-                    <label for="read">Read</label> <input type="checkbox" id="read" name="read">
-                </form>
-            </div>
+                        <label for="read">Read</label> <input type="checkbox" id="read" name="read">
+                    </form>
+                </div>
 
-            <div class="form-action-buttons">
-                <button class="submit-book-button" type="submit" form="book-submit-form">Add</button>
-                <button class="close-modal-button">Cancel</button>
-            </div>
-        </dialog>
-    </div>
+                <div class="form-action-buttons">
+                    <button class="submit-book-button" type="submit" form="book-submit-form">Add</button>
+                    <button class="close-modal-button">Cancel</button>
+                </div>
+            </dialog>
+        </div>
+
+        <div class="content">
+            <h1>All</h1>
+        </div>
+    </main>
 
     <script src="script.js" defer></script>
 </body>

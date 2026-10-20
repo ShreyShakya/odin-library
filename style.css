@@ -1,5 +1,25 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
 .form-input-field form {
     display: flex;
     flex-direction: column;
     row-gap: 3px;
+}
+
+.book-card {
+    border: 1px solid #ccc;
+    padding: 16px;
+    border-radius: 8px;
+    width: 200px;
+}
+
+.book-title {
+    font-weight: bold;
 }

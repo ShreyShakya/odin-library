@@ -1,4 +1,4 @@
-const myLibrary = [];
+const myLibrary = [{title: 'The Hobbit', author: 'J.R.R', page: 310, read: false}];
 
 function Book(title, author, page, read) {
     this.title = title
@@ -11,9 +11,40 @@ function addBookToLibrary(title, author, page, read) {
     // take params, create a book then store it in the array
     const book = new Book(title, author, page, read)
     myLibrary.push(book)
-    
+
 }
 
+function renderDisplay(arr) {
+
+    for (const books of arr) {
+
+        const card = document.createElement('div')
+        card.classList.add("book-card");
+
+        const title = document.createElement('p')
+        title.classList.add("book-title");
+
+        const author = document.createElement('p')
+        author.classList.add("book-author");
+
+        const page = document.createElement('p')
+        page.classList.add("book-page");
+
+        const read = document.createElement('p')
+        read.classList.add("book-read");
+        
+        title.textContent = `Title: ${books.title}`
+        author.textContent = `Author: ${books.author}`
+        page.textContent = `Pages: ${books.page}`
+        read.textContent = `Read: ${books.read}`
+
+        card.append(title, author, page, read)
+
+        display.append(card)
+    }
+}
+
+const display = document.querySelector('.content')
 const addBookBtn = document.querySelector('.add-book-button')
 const modalDialog = document.querySelector('.form')
 const closeBtn = document.querySelector('.close-modal-button');
@@ -24,17 +55,20 @@ const authorInput = document.querySelector('#author')
 const pageInput = document.querySelector('#page')
 const readInput = document.querySelector('#read')
 
+renderDisplay(myLibrary)
+
 addBookBtn.addEventListener("click", function () {
     modalDialog.showModal();
 })
 
-bookForm.addEventListener("submit", function(event) {
+bookForm.addEventListener("submit", function (event) {
     event.preventDefault()
     addBookToLibrary(titleInput.value, authorInput.value, Number(pageInput.value), readInput.checked)
     modalDialog.close()
+    renderDisplay(myLibrary)
 })
 
-closeBtn.addEventListener("click", function() {
+closeBtn.addEventListener("click", function () {
     modalDialog.close()
 })
 
