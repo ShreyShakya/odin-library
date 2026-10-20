@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,38 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
+    <div>
+        <button class="submit-book">Add a Book</button>
+
+        <dialog class="form">
+            <p>Add Book Details</p>
+            <div class="form-input-field">
+                <form id="book-submit-form" action="#" method="GET">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title">
+
+                    <label for="author">Author</label>
+                    <input type="text" id="author" name="author">
+
+                    <label for="page">Page</label>
+                    <input type="text" id="page" name="page">
+
+                    <label for="read">Read</label>
+                    <input type="checkbox" id="read" name="read">
+                </form>
+            </div>
+
+            <div class="form-action-buttons">
+                <button type="submit" form="book-submit-form">Add</button>
+                <button class="close-modal-button">Cancel</button>
+            </div>
+        </dialog>
+    </div>
+
+    <script src="script.js" defer></script>
 </body>
+
 </html>
