@@ -16,7 +16,10 @@ function addBookToLibrary(title, author, page, read) {
 
 function renderDisplay(arr) {
 
+    display.textContent = "";
+
     for (const books of arr) {
+        let bookIndex = arr.indexOf(books)
 
         const card = document.createElement('div')
         card.classList.add("book-card");
@@ -32,13 +35,22 @@ function renderDisplay(arr) {
 
         const read = document.createElement('p')
         read.classList.add("book-read");
+
+        const removeCard = document.createElement('button')
+        removeCard.textContent = "Delete"
+        removeCard.classList.add("book-delete-button")
+
+        removeCard.addEventListener("click", function() {
+            arr.splice(bookIndex, 1)
+            renderDisplay(arr)
+        })
         
         title.textContent = `Title: ${books.title}`
         author.textContent = `Author: ${books.author}`
         page.textContent = `Pages: ${books.page}`
         read.textContent = `Read: ${books.read}`
 
-        card.append(title, author, page, read)
+        card.append(title, author, page, read, removeCard)
 
         display.append(card)
     }
