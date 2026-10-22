@@ -1,10 +1,36 @@
 * {
     font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
 }
 
 main {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 3fr;
+}
+
+.sidebar {
+    min-height: 100vh;
+    background-color: #eeeeee;
+}
+
+.sidebar h1 {
+    margin: 15px;
+}
+
+.sidebar button {
+    margin: 0px 15px;
+}
+
+.add-book-button {
+    border-style: none;
+    border-radius: 8px;
+    background-color: black;
+    color: white;
+    font-size: medium;
+    font-weight: 600;
+    height: 40px;
+    width: 150px;
+
 }
 
 .form-input-field form {
@@ -22,4 +48,8 @@ main {
 
 .book-title {
     font-weight: bold;
+}
+
+.dashboard h1 {
+    margin: 15px;
 }

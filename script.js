@@ -1,6 +1,7 @@
-const myLibrary = [{title: 'The Hobbit', author: 'J.R.R', page: 310, read: false}];
+const myLibrary = [];
 
 function Book(title, author, page, read) {
+    this.id = crypto.randomUUID()
     this.title = title
     this.author = author
     this.page = page
@@ -38,13 +39,18 @@ function renderDisplay(arr) {
 
         const removeCard = document.createElement('button')
         removeCard.textContent = "Delete"
+        removeCard.dataset.bookId = books.id;
         removeCard.classList.add("book-delete-button")
 
-        removeCard.addEventListener("click", function() {
+        removeCard.addEventListener("click", function () {
+            const bookIndex = arr.findIndex(function (book) {
+                return book.id === removeCard.dataset.bookId
+            })
+
             arr.splice(bookIndex, 1)
             renderDisplay(arr)
         })
-        
+
         title.textContent = `Title: ${books.title}`
         author.textContent = `Author: ${books.author}`
         page.textContent = `Pages: ${books.page}`
