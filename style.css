@@ -5,7 +5,7 @@
 
 main {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 300px 1fr;
 }
 
 .sidebar {
@@ -43,7 +43,16 @@ main {
     border: 1px solid #ccc;
     padding: 16px;
     border-radius: 8px;
-    width: 200px;
+}
+
+.book-icon {
+    height: 150px;
+    width: 100%;
+    margin-bottom: 15px;
+    background-image: url(/book.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .book-title {
@@ -52,4 +61,11 @@ main {
 
 .dashboard h1 {
     margin: 15px;
+}
+
+.content {
+    margin-left: 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
+    gap: 30px;
 }

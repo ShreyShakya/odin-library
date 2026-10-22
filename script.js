@@ -1,4 +1,4 @@
-const myLibrary = [];
+const myLibrary = [{ id: 'c2c421d6-374c-4b94-993a-5ddcbe07e631', title: 'The Hobbit', author: 'JRR', page: 23, read: true }];
 
 function Book(title, author, page, read) {
     this.id = crypto.randomUUID()
@@ -20,10 +20,12 @@ function renderDisplay(arr) {
     display.textContent = "";
 
     for (const books of arr) {
-        let bookIndex = arr.indexOf(books)
 
         const card = document.createElement('div')
         card.classList.add("book-card");
+
+        const bookIcon = document.createElement('div')
+        bookIcon.classList.add("book-icon")
 
         const title = document.createElement('p')
         title.classList.add("book-title");
@@ -34,8 +36,18 @@ function renderDisplay(arr) {
         const page = document.createElement('p')
         page.classList.add("book-page");
 
-        const read = document.createElement('p')
-        read.classList.add("book-read");
+        const readLabel = document.createElement('label')
+        readLabel.textContent = "Mark as Read: "
+
+        const readToggle = document.createElement('input')
+        readToggle.type = "checkbox"
+        readToggle.classList.add("book-read");
+        readToggle.checked = books.read;
+
+        readToggle.addEventListener('change', function () {
+            books.read = readToggle.checked;
+            renderDisplay(arr)
+        });
 
         const removeCard = document.createElement('button')
         removeCard.textContent = "Delete"
@@ -54,9 +66,8 @@ function renderDisplay(arr) {
         title.textContent = `Title: ${books.title}`
         author.textContent = `Author: ${books.author}`
         page.textContent = `Pages: ${books.page}`
-        read.textContent = `Read: ${books.read}`
 
-        card.append(title, author, page, read, removeCard)
+        card.append(bookIcon, title, author, page, readLabel, readToggle, removeCard)
 
         display.append(card)
     }
@@ -84,6 +95,7 @@ bookForm.addEventListener("submit", function (event) {
     addBookToLibrary(titleInput.value, authorInput.value, Number(pageInput.value), readInput.checked)
     modalDialog.close()
     renderDisplay(myLibrary)
+    bookForm.reset();
 })
 
 closeBtn.addEventListener("click", function () {
