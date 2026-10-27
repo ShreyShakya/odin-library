@@ -40,9 +40,18 @@ main {
 }
 
 .book-card {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
     border: 1px solid #ccc;
     padding: 16px;
     border-radius: 8px;
+}
+
+.read-box {
+    display: flex;
+    justify-items: center;
+    column-gap: 5px;
 }
 
 .book-icon {
@@ -59,12 +68,24 @@ main {
     font-weight: bold;
 }
 
+.book-delete-button{
+    border-style: none;
+    border-radius: 8px;
+    background-color: black;
+    color: white;
+    font-size: medium;
+    font-weight: 600;
+    height: 40px;
+    width: 100%;
+    margin-top: 10px;
+}
+
 .dashboard h1 {
-    margin: 15px;
+    margin: 15px 30px;
 }
 
 .content {
-    margin-left: 15px;
+    margin-left: 30px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
     gap: 30px;

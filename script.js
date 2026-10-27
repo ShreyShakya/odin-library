@@ -1,12 +1,23 @@
-const myLibrary = [{ id: 'c2c421d6-374c-4b94-993a-5ddcbe07e631', title: 'The Hobbit', author: 'JRR', page: 23, read: true }];
+class Book {
 
-function Book(title, author, page, read) {
-    this.id = crypto.randomUUID()
-    this.title = title
-    this.author = author
-    this.page = page
-    this.read = read
+    constructor(title, author, page, read) {
+        this.id = crypto.randomUUID()
+        this.title = title
+        this.author = author
+        this.page = page
+        this.read = read
+    }
 }
+
+
+const myLibrary = [
+    new Book("The Hobbit", "J.R.R. Tolkien", 310, true),
+    new Book("1984", "George Orwell", 328, false),
+    new Book("The Alchemist", "Paulo Coelho", 208, true),
+    new Book("Dune", "Frank Herbert", 412, false),
+    new Book("Harry Potter and the Philosopher's Stone", "J.K. Rowling", 223, false),
+    new Book("Animal Farm", "George Orwell", 112, true)
+];
 
 function addBookToLibrary(title, author, page, read) {
     // take params, create a book then store it in the array
@@ -36,12 +47,15 @@ function renderDisplay(arr) {
         const page = document.createElement('p')
         page.classList.add("book-page");
 
+        const read = document.createElement('div')
+        read.classList.add("read-box")
+
         const readLabel = document.createElement('label')
         readLabel.textContent = "Mark as Read: "
 
         const readToggle = document.createElement('input')
         readToggle.type = "checkbox"
-        readToggle.classList.add("book-read");
+        readToggle.classList.add("book-read-toggle");
         readToggle.checked = books.read;
 
         readToggle.addEventListener('change', function () {
@@ -67,7 +81,9 @@ function renderDisplay(arr) {
         author.textContent = `Author: ${books.author}`
         page.textContent = `Pages: ${books.page}`
 
-        card.append(bookIcon, title, author, page, readLabel, readToggle, removeCard)
+        read.append(readLabel, readToggle)
+
+        card.append(bookIcon, title, author, page, read, removeCard)
 
         display.append(card)
     }
